@@ -71,7 +71,7 @@ function App() {
             name={employee.name}
             role={employee.role}
             img={employee.img}
-            updateEmployee={updateEmployee}
+            updateEmployee={employee.updateEmployee}
             />
           );
         })}
