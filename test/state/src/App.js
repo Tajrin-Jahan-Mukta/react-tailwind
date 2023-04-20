@@ -12,7 +12,7 @@ function App() {
         img:'https://images.pexels.com/photos/1382726/pexels-photo-1382726.jpeg?auto=compress&cs=tinysrgb&w=600',
       },
       {
-        id: 4,
+        id: 2,
         name:'Gigi',
         role:'Therapist',
         img:'https://images.pexels.com/photos/1382730/pexels-photo-1382730.jpeg?auto=compress&cs=tinysrgb&w=600',
@@ -24,19 +24,19 @@ function App() {
         img:'https://images.pexels.com/photos/1462636/pexels-photo-1462636.jpeg?auto=compress&cs=tinysrgb&w=600',
       },
       {
-        id: 2,
+        id: 4,
         name:'Mac',
         role:'Orthopedix',
         img:'https://images.pexels.com/photos/5327656/pexels-photo-5327656.jpeg?auto=compress&cs=tinysrgb&w=600',
       },
       {
-        id: 7,
+        id: 5,
         name:'Jack',
         role:'Therapist',
         img:'https://images.pexels.com/photos/5452268/pexels-photo-5452268.jpeg?auto=compress&cs=tinysrgb&w=600',
       },
       {
-        id: 8,
+        id: 6,
         name:'Harry',
         role:'Heart Specialist',
         img:'https://images.pexels.com/photos/4173239/pexels-photo-4173239.jpeg?auto=compress&cs=tinysrgb&w=600',
@@ -45,12 +45,14 @@ function App() {
   );
   function updateEmployee(id,newName,newRole){
     const updatedEmployees= employee.map((employee) => {
-      if(id==employee.id){
+      if(id === employee.id){
         return {...employee, name: newName, role: newRole}
       }
       return employee;
 
-    })
+    });
+    setEmployee(updatedEmployees);
+
   }
   return (
     <div>
@@ -63,7 +65,7 @@ function App() {
       </>
       <div className="flex flex-wrap justify-center">
         {employee.map((employee) => {
-          console.log(employee);
+
           return(
             <Doctor
             key={employee.id} 
@@ -71,7 +73,7 @@ function App() {
             name={employee.name}
             role={employee.role}
             img={employee.img}
-            updateEmployee={employee.updateEmployee}
+            updateEmployee={updateEmployee}
             />
           );
         })}
