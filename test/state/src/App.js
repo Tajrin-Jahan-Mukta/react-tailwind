@@ -1,5 +1,6 @@
 import './index.css';
 import Doctor from './Component/Doctor';
+import AddEmployee from './Component/AddEmployee';
 import {useState} from 'react';
 function App() {
 
@@ -78,6 +79,7 @@ function App() {
           );
         })}
       </div>
+      <AddEmployee/>
       
     </div>
   );

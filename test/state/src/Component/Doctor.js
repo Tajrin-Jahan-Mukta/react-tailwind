@@ -16,7 +16,12 @@ function Doctor(props){
         {props.role}
       </p>
     </div>
-    <EditEmployee id={props.id} name={props.name} role={props.role} updateEmployee={props.updateEmployee}/>
+    <EditEmployee 
+    id={props.id} 
+    name={props.name} 
+    role={props.role} 
+    updateEmployee={props.updateEmployee}
+    />
     
   </div>
 </div>
