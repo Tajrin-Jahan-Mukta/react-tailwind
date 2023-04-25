@@ -5,7 +5,7 @@ import Modal from 'react-bootstrap/Modal';
 function AddEmployee(props) {
   const [name, setName] = useState('');
   const [role, setRole] = useState('');
-  const [image, setImage] = useState('');
+  const [img, setImg] = useState('');
 
   
   const [show, setShow] = useState(false);
@@ -34,9 +34,10 @@ function AddEmployee(props) {
             <form 
             onSubmit={(e)=> {
               e.preventDefault();
-              console.log('hello from edit Employee');
-              console.log(props.id,name,role);
-              props.updateEmployee(props.id,name,role);
+              setName('');
+              setRole('');
+              setImg('');
+              props.newEmployee(name,role,img);
             }}
             id="editModal" className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
               <div className="mb-4">
@@ -64,15 +65,15 @@ function AddEmployee(props) {
                 }}/>
               </div>
               <div className="mb-4">
-                <label className="block text-gray-700 text-sm font-bold mb-2" for="image">
+                <label className="block text-gray-700 text-sm font-bold mb-2" for="img">
                   Image
                 </label>
                 <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
-                id="image" 
+                id="img" 
                 type="text" 
-                value={image} 
+                value={img} 
                 onChange={(e) => {
-                  setImage(e.target.value);
+                  setImg(e.target.value);
                 }}/>
               </div>
 
@@ -85,7 +86,9 @@ function AddEmployee(props) {
             Close
           </Button>
           <button className="bg-purple-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
-            form="editModal">
+            form="editModal"     
+            onClick={handleClose}
+            >
             Add
           </button>
         </Modal.Footer>

@@ -45,9 +45,9 @@ function App() {
     ]
   );
   function updateEmployee(id,newName,newRole){
-    const updatedEmployees= employee.map((employee) => {
-      if(id === employee.id){
-        return {...employee, name: newName, role: newRole}
+    const updatedEmployees= employee.map((employees) => {
+      if(id === employees.id){
+        return {...employees, name: newName, role: newRole}
       }
       return employee;
 
@@ -55,6 +55,16 @@ function App() {
     setEmployee(updatedEmployees);
 
   }
+
+    function newEmployee(name,role,img){
+      const newEmployee={
+        
+        name: name,
+        role:role,
+        img: img,
+      }
+     setEmployee([...employee,newEmployee])
+    }
   return (
     <div>
       <>
@@ -65,8 +75,10 @@ function App() {
       />
       </>
       <div className="flex flex-wrap justify-center">
-        {employee.map((employee) => {
-
+        {
+        employee.map((employee) => {
+          
+        
           return(
             <Doctor
             key={employee.id} 
@@ -79,7 +91,7 @@ function App() {
           );
         })}
       </div>
-      <AddEmployee/>
+      <AddEmployee newEmployee={newEmployee}/>
       
     </div>
   );
