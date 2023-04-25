@@ -1,6 +1,7 @@
 import './index.css';
 import Doctor from './Component/Doctor';
 import AddEmployee from './Component/AddEmployee';
+import Header from './Component/Header';
 import {useState} from 'react';
 function App() {
 
@@ -66,7 +67,8 @@ function App() {
      setEmployee([...employee,newEmployee])
     }
   return (
-    <div>
+    <div classname="App">
+      <Header/>
       <>
       <input type="text"
       onChange={(e) => {
